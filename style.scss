@@ -1,0 +1,344 @@
+*, *::after, *::before{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@mixin display-flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+$bg-color: hsl(200, 50%, 12%);
+$skin-color: hsl(19, 76%, 88%);
+$hair-color: hsl(27, 33%, 28%);
+$darken-skin-color: lighten($hair-color, 30%);
+
+
+body{
+    background: $bg-color;
+    @include display-flex;
+    overflow: hidden;
+}
+.container{
+    width: 50vw;
+    height: 100vh;
+    @include display-flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    .head{
+        background: $skin-color;
+        width: 300px;
+        height: 340px;
+        border-radius: 70% 70% 100% 100%;
+        @include display-flex;
+        box-shadow: inset 1px -5px 40px 3px $hair-color;
+        transition: 1s ease;
+        animation: anim 1s ease infinite;
+        z-index: 100;
+
+        .hair{
+            position: absolute;
+            width: 300px;
+            height: 120px;
+            background-color: $hair-color;
+            margin-bottom: 250px;
+            border-radius: 80% 90% 70% 60%;
+        }
+        .hair::before,
+        .hair::after{
+            content: '';
+            position: absolute;
+            width: 15px;
+            transform: translateY(100%);
+            background: $hair-color;
+        }
+        .hair::before{
+            height: 60px;
+            border-radius: 0% 10% 60% 0%;
+        }
+        .hair::after{
+            right: 0;
+            height: 60px;
+            border-radius: 10% 40% 0% 30%;;
+        }
+
+        .eyes, .brows, .glasses{
+            position: absolute;
+            width: 195px;
+            display: flex;
+            justify-content: space-between;
+
+            .eye{
+                @include display-flex;
+                background-color: #fff;
+                height: 42px;
+                width: 65px;
+                border-radius: 100%;
+                border-top: 2px solid $darken-skin-color;
+                border-bottom: 2px solid $darken-skin-color;
+                position: relative;
+                overflow: hidden;
+                transition: 1s ease;
+
+                &::before{
+                    content: '';
+                    position: absolute;
+                    width: 41px;
+                    height: 41px;
+                    background-color: hsl(103, 79%, 32%);
+                    border-radius: 100%;
+                    margin-left: 10px;
+                    margin-bottom: 5px;
+                    animation: eyemove 1s ease-in-out;
+                    animation-iteration-count: 2;
+                    animation-delay: 4s;
+                    transition: 1s ease;
+                }
+
+                &::after{
+                    content: '';
+                    position: absolute;
+                    width: 15px;
+                    height: 15px;
+                    background-color: #333;
+                    border-radius: 100%;
+                    margin-left: 15px;
+                    margin-bottom: 7px;
+                    animation:  pupilsmove 1s ease-in-out ;
+                    animation-iteration-count: 2;
+                    animation-delay: 4s;
+                    transition: 1s ease;
+                }
+
+                @keyframes eyemove{
+                    0%{
+                        transform: translateX(0);
+                    }
+                    25%{
+                        transform: translateX(5px);
+                    }
+                    50%{
+                        transform: translateX(0);
+                    }
+                    75%{
+                        transform: translateX(-5px);
+                    }
+                    100%{
+                        transform: translateX(0);
+                    }
+                }
+
+                @keyframes pupilsmove{
+                    0%{
+                        transform: translateX(0);
+                    }
+                    25%{
+                        transform: translateX(5px);
+                    }
+                    50%{
+                        transform: translateX(0);
+                    }
+                    75%{
+                        transform: translateX(-5px);
+                    }
+                    100%{
+                        transform: translateX(0);
+                        
+                    }
+                }
+            }
+
+            .brow{
+                width: 65px;
+                height: 32px;
+                border-radius: 100%;
+                border-top: 8px solid $hair-color;
+                margin-bottom: 50px;
+
+            }
+            .left-brow{
+                animation:  browsmove 1s ease-in-out ;
+                animation-iteration-count: 2;
+                animation-delay: 6s;
+                transition: 1s ease;
+            }
+
+            @keyframes browsmove{
+                0%{
+                    transform: translateY(0);
+                }
+                50%{
+                    transform: translateY(-5px);
+                }
+                100%{
+                    transform: translateY(0px);
+                }
+            }
+        }
+        .glasses{
+            width: 210px;
+        }
+
+        .glass:first-child{
+            margin-right: 8px;
+        }
+
+        .glass:last-child{
+            margin-left: 8px;
+        }
+        .glass{
+            background-image:linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 100%);
+            backdrop-filter: blur(1px);
+            height: 70px;
+            width: 85px;
+            z-index: 5;
+            border: 2px solid #000;
+            border-radius: 30% 30% 100% 100%;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.40);
+            border-left: 1px solid rgba(0, 0, 0, 0.40);
+            border-right: 1px solid rgba(0, 0, 0, 0.40);
+            position: relative;
+        }
+        
+        .toleftear{
+            margin-top: 0px;
+            position: absolute;
+            width: 70px;
+            height: 5px;
+            transform: rotate(-35deg);
+            right: -61px;
+            border-top: 5px solid #000;
+            border-radius: 50%;
+        }
+        .torightear{
+            margin-top: 0px;
+            position: absolute;
+            width: 70px;
+            height: 5px;
+            transform: rotate(35deg);
+            left: -61px;
+            border-top: 5px solid #000;
+            border-radius: 50%;
+        }
+
+        .connector{
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            border-radius: 100%;
+            border-top: 3px solid #000;
+            margin-top: 25px;
+            left: 75px;
+        }
+
+        .ears{
+            position: absolute;
+            width: 340px;
+            display: flex;
+            justify-content: space-between;
+            z-index: -1;
+
+            .ear{
+                width: 25px;
+                height: 70px;
+                border-radius: 0 100% 100% 0;
+                background: $skin-color;
+                box-shadow: inset 1px 1px 10px $darken-skin-color;
+
+                &:first-child{
+                    border-radius: 100% 0 0 100%;
+                }
+            }
+        }
+
+        .nose{
+            position: absolute;
+            width: 33px;
+            height: 37px;
+            border-radius: 0 0 100% 100%;
+            border: 3px solid $darken-skin-color;
+            border-top: none;
+            margin-top: 90px;
+        }
+
+        .mouth{
+            position: absolute;
+            width: 100px;
+            height: 30px;
+            background-color: #fff;
+            margin-top: 218px;
+            border: 3px solid hsl(340, 95%, 75%);
+            border-radius: 30% 30% 100% 100%;
+            border-right-width: 1px;
+            border-left-width: 1px;
+            border-top-width: 2px;
+            animation: smile 2.5s ease;
+            animation-iteration-count: 2;
+            animation-delay: 3.5s;
+            transition: 1s ease;
+        }
+
+        @keyframes smile {
+            from{
+                height: 0;
+            }
+            to{
+                height: initial;
+            }
+        }
+
+        .beard{
+            position: absolute;
+            width: 245px;
+            height: 115px;
+            background-color: transparent;
+            margin-top: 246px;
+            border: 30px solid $hair-color;
+            border-radius: 30% 30% 40% 40%;
+            border-top: 11px solid $hair-color;
+            border-right: 50px solid $hair-color;
+            border-left: 50px solid $hair-color;
+            box-shadow: inset 1px -10px 40px 3px $hair-color;
+
+        }
+    }
+
+    .neck{
+        background: $skin-color;
+        width: 120px;
+        height: 100px;
+        margin-top: -50px;
+        z-index: -1;
+        @include display-flex;
+        position: relative;
+        border-radius: 30%;
+      
+
+        .neck-corner{
+            position: absolute;
+            width: 100%;
+        }
+
+        .neck-corner::before,
+        .neck-corner::after{
+            content: '';
+            position: absolute;    
+            width: 100px;
+            height: 170px;
+            transform: rotate(-30deg);
+            background-color: $skin-color;
+            top: 15px;
+            left: -15px;
+            border-radius: 30% 0% 40% 40%;
+        }
+        .neck-corner::after{
+            right: -15px;
+            left: initial;
+            border-radius: 0% 30% 40% 40%;
+            transform: rotate(30deg);
+        }
+    }
+}

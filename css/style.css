@@ -1,0 +1,501 @@
+*, *::after, *::before {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #0f242e;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow: hidden;
+}
+
+.container {
+  width: 50vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow: hidden;
+}
+
+.container .head {
+  background: #f8d8c9;
+  width: 300px;
+  height: 340px;
+  border-radius: 70% 70% 100% 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: inset 1px -5px 40px 3px #5f4530;
+          box-shadow: inset 1px -5px 40px 3px #5f4530;
+  -webkit-transition: 1s ease;
+  transition: 1s ease;
+  -webkit-animation: anim 1s ease infinite;
+          animation: anim 1s ease infinite;
+  z-index: 100;
+}
+
+.container .head .hair {
+  position: absolute;
+  width: 300px;
+  height: 120px;
+  background-color: #5f4530;
+  margin-bottom: 250px;
+  border-radius: 80% 90% 70% 60%;
+}
+
+.container .head .hair::before,
+.container .head .hair::after {
+  content: '';
+  position: absolute;
+  width: 15px;
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+  background: #5f4530;
+}
+
+.container .head .hair::before {
+  height: 60px;
+  border-radius: 0% 10% 60% 0%;
+}
+
+.container .head .hair::after {
+  right: 0;
+  height: 60px;
+  border-radius: 10% 40% 0% 30%;
+}
+
+.container .head .eyes, .container .head .brows, .container .head .glasses {
+  position: absolute;
+  width: 195px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.container .head .eyes .eye, .container .head .brows .eye, .container .head .glasses .eye {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #fff;
+  height: 42px;
+  width: 65px;
+  border-radius: 100%;
+  border-top: 2px solid #b79071;
+  border-bottom: 2px solid #b79071;
+  position: relative;
+  overflow: hidden;
+  -webkit-transition: 1s ease;
+  transition: 1s ease;
+}
+
+.container .head .eyes .eye::before, .container .head .brows .eye::before, .container .head .glasses .eye::before {
+  content: '';
+  position: absolute;
+  width: 41px;
+  height: 41px;
+  background-color: #369211;
+  border-radius: 100%;
+  margin-left: 10px;
+  margin-bottom: 5px;
+  -webkit-animation: eyemove 1s ease-in-out;
+          animation: eyemove 1s ease-in-out;
+  -webkit-animation-iteration-count: 2;
+          animation-iteration-count: 2;
+  -webkit-animation-delay: 4s;
+          animation-delay: 4s;
+  -webkit-transition: 1s ease;
+  transition: 1s ease;
+}
+
+.container .head .eyes .eye::after, .container .head .brows .eye::after, .container .head .glasses .eye::after {
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-color: #333;
+  border-radius: 100%;
+  margin-left: 15px;
+  margin-bottom: 7px;
+  -webkit-animation: pupilsmove 1s ease-in-out;
+          animation: pupilsmove 1s ease-in-out;
+  -webkit-animation-iteration-count: 2;
+          animation-iteration-count: 2;
+  -webkit-animation-delay: 4s;
+          animation-delay: 4s;
+  -webkit-transition: 1s ease;
+  transition: 1s ease;
+}
+
+@-webkit-keyframes eyemove {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  25% {
+    -webkit-transform: translateX(5px);
+            transform: translateX(5px);
+  }
+  50% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  75% {
+    -webkit-transform: translateX(-5px);
+            transform: translateX(-5px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes eyemove {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  25% {
+    -webkit-transform: translateX(5px);
+            transform: translateX(5px);
+  }
+  50% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  75% {
+    -webkit-transform: translateX(-5px);
+            transform: translateX(-5px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes pupilsmove {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  25% {
+    -webkit-transform: translateX(5px);
+            transform: translateX(5px);
+  }
+  50% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  75% {
+    -webkit-transform: translateX(-5px);
+            transform: translateX(-5px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes pupilsmove {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  25% {
+    -webkit-transform: translateX(5px);
+            transform: translateX(5px);
+  }
+  50% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  75% {
+    -webkit-transform: translateX(-5px);
+            transform: translateX(-5px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+.container .head .eyes .brow, .container .head .brows .brow, .container .head .glasses .brow {
+  width: 65px;
+  height: 32px;
+  border-radius: 100%;
+  border-top: 8px solid #5f4530;
+  margin-bottom: 50px;
+}
+
+.container .head .eyes .left-brow, .container .head .brows .left-brow, .container .head .glasses .left-brow {
+  -webkit-animation: browsmove 1s ease-in-out;
+          animation: browsmove 1s ease-in-out;
+  -webkit-animation-iteration-count: 2;
+          animation-iteration-count: 2;
+  -webkit-animation-delay: 6s;
+          animation-delay: 6s;
+  -webkit-transition: 1s ease;
+  transition: 1s ease;
+}
+
+@-webkit-keyframes browsmove {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  50% {
+    -webkit-transform: translateY(-5px);
+            transform: translateY(-5px);
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+}
+
+@keyframes browsmove {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  50% {
+    -webkit-transform: translateY(-5px);
+            transform: translateY(-5px);
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+}
+
+.container .head .glasses {
+  width: 210px;
+}
+
+.container .head .glass:first-child {
+  margin-right: 8px;
+}
+
+.container .head .glass:last-child {
+  margin-left: 8px;
+}
+
+.container .head .glass {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0.3)));
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 100%);
+  -webkit-backdrop-filter: blur(1px);
+          backdrop-filter: blur(1px);
+  height: 70px;
+  width: 85px;
+  z-index: 5;
+  border: 2px solid #000;
+  border-radius: 30% 30% 100% 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  border-left: 1px solid rgba(0, 0, 0, 0.4);
+  border-right: 1px solid rgba(0, 0, 0, 0.4);
+  position: relative;
+}
+
+.container .head .toleftear {
+  margin-top: 0px;
+  position: absolute;
+  width: 70px;
+  height: 5px;
+  -webkit-transform: rotate(-35deg);
+          transform: rotate(-35deg);
+  right: -61px;
+  border-top: 5px solid #000;
+  border-radius: 50%;
+}
+
+.container .head .torightear {
+  margin-top: 0px;
+  position: absolute;
+  width: 70px;
+  height: 5px;
+  -webkit-transform: rotate(35deg);
+          transform: rotate(35deg);
+  left: -61px;
+  border-top: 5px solid #000;
+  border-radius: 50%;
+}
+
+.container .head .connector {
+  position: absolute;
+  width: 60px;
+  height: 3px;
+  border-radius: 100%;
+  border-top: 3px solid #000;
+  margin-top: 25px;
+  left: 75px;
+}
+
+.container .head .ears {
+  position: absolute;
+  width: 340px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  z-index: -1;
+}
+
+.container .head .ears .ear {
+  width: 25px;
+  height: 70px;
+  border-radius: 0 100% 100% 0;
+  background: #f8d8c9;
+  -webkit-box-shadow: inset 1px 1px 10px #b79071;
+          box-shadow: inset 1px 1px 10px #b79071;
+}
+
+.container .head .ears .ear:first-child {
+  border-radius: 100% 0 0 100%;
+}
+
+.container .head .nose {
+  position: absolute;
+  width: 33px;
+  height: 37px;
+  border-radius: 0 0 100% 100%;
+  border: 3px solid #b79071;
+  border-top: none;
+  margin-top: 90px;
+}
+
+.container .head .mouth {
+  position: absolute;
+  width: 100px;
+  height: 30px;
+  background-color: #fff;
+  margin-top: 218px;
+  border: 3px solid #fc83ab;
+  border-radius: 30% 30% 100% 100%;
+  border-right-width: 1px;
+  border-left-width: 1px;
+  border-top-width: 2px;
+  -webkit-animation: smile 2.5s ease;
+          animation: smile 2.5s ease;
+  -webkit-animation-iteration-count: 2;
+          animation-iteration-count: 2;
+  -webkit-animation-delay: 3.5s;
+          animation-delay: 3.5s;
+  -webkit-transition: 1s ease;
+  transition: 1s ease;
+}
+
+@-webkit-keyframes smile {
+  from {
+    height: 0;
+  }
+  to {
+    height: initial;
+  }
+}
+
+@keyframes smile {
+  from {
+    height: 0;
+  }
+  to {
+    height: initial;
+  }
+}
+
+.container .head .beard {
+  position: absolute;
+  width: 245px;
+  height: 115px;
+  background-color: transparent;
+  margin-top: 246px;
+  border: 30px solid #5f4530;
+  border-radius: 30% 30% 40% 40%;
+  border-top: 11px solid #5f4530;
+  border-right: 50px solid #5f4530;
+  border-left: 50px solid #5f4530;
+  -webkit-box-shadow: inset 1px -10px 40px 3px #5f4530;
+          box-shadow: inset 1px -10px 40px 3px #5f4530;
+}
+
+.container .neck {
+  background: #f8d8c9;
+  width: 120px;
+  height: 100px;
+  margin-top: -50px;
+  z-index: -1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  border-radius: 30%;
+}
+
+.container .neck .neck-corner {
+  position: absolute;
+  width: 100%;
+}
+
+.container .neck .neck-corner::before,
+.container .neck .neck-corner::after {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 170px;
+  -webkit-transform: rotate(-30deg);
+          transform: rotate(-30deg);
+  background-color: #f8d8c9;
+  top: 15px;
+  left: -15px;
+  border-radius: 30% 0% 40% 40%;
+}
+
+.container .neck .neck-corner::after {
+  right: -15px;
+  left: initial;
+  border-radius: 0% 30% 40% 40%;
+  -webkit-transform: rotate(30deg);
+          transform: rotate(30deg);
+}
